@@ -28,4 +28,8 @@ public class CharacterState : MonoBehaviour
     {
         
     }
+    public void Hit()
+    {
+        OnHurt.Invoke();
+    }
 }

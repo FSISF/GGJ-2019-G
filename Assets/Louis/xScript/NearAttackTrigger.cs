@@ -18,7 +18,7 @@ public class NearAttackTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name != "Enemy")
+        if (!other.name.Contains("Enemy"))
             return;
         if (CurrentEnemys.Find(x => x.gameObject == other.gameObject))
             return;
@@ -26,7 +26,7 @@ public class NearAttackTrigger : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.name != "Enemy")
+        if (!collision.name.Contains("Enemy"))
             return;
         if (CurrentEnemys.Find(x => x.gameObject == collision.gameObject))
         {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   welcomeScreenVersion: '1.9.0 '
   playmakerVersion: 
-  showWelcomeScreen: 0
+  showWelcomeScreen: 1
   showUpgradeGuide: 0
-  lastAutoUpdateSignature: 2018.3.2f1__C:/GGJ_G/Assets__0.0.0.0
+  lastAutoUpdateSignature: 2018.3.2f1__/Users/tim/GGJ-G/Assets__0.0.0.0
   useLegacyNetworking: 0

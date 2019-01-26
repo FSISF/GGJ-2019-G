@@ -11,6 +11,8 @@ public enum Team
 public class CharInterface : MonoBehaviour
 {
 
+	[SerializeField]
+	private MonsterNav _monsterNav;
 	public Team Team;
 
 	public void TakeDamage(int damage)
@@ -20,7 +22,14 @@ public class CharInterface : MonoBehaviour
 
 	public void ChangeNav(NavType nav)
 	{
-		//TODO
+		if (_monsterNav != null)
+		{
+			_monsterNav.SwitchNav(nav);
+		}
+		else
+		{
+			Debug.LogError("Not Found ");
+		}
 	}
 
 	public void Shoot(Bullet b , CharInterface target)

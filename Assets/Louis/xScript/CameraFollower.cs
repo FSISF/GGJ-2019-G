@@ -22,7 +22,7 @@ public class CameraFollower : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 targetPosition = new Vector3(Target.transform.position.x, Target.transform.position.y, transform.position.z);
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         transform.position = Vector3.Lerp(transform.position, targetPosition - (Vector3)moveInput* offset, smoothLerp);
 
     }

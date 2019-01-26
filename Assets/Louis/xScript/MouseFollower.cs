@@ -16,6 +16,10 @@ public class MouseFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Lookat2D(transform.position, mousePos, lookDire);
     }

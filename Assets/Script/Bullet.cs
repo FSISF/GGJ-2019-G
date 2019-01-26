@@ -15,5 +15,6 @@ public class Bullet : MonoBehaviour
 		}
 
 		charInterface.TakeDamage(damage);
+		Destroy(gameObject);
 	}
 }

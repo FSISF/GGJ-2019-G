@@ -76,6 +76,12 @@ namespace JFun.Gameplay.BehaviourTree
 				{
 					node = monsterNavMono.Create();
 				}
+				ShootBulletNodeMono shootMono = child.GetComponent<ShootBulletNodeMono>();
+				if (shootMono != null)
+				{
+					node = shootMono.Create();
+				}
+
 		#endregion
 				composite.AddChild(node);
 				if (node is AINodeContainer)

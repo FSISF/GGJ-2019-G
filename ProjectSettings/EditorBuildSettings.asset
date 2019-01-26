@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Startup.unity
+    guid: c2e00cfac1f7cc142afe696730fc7d10
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: f0500ca47a4566d4792d54ea8a1e147c
+  - enabled: 1
+    path: Assets/Scenes/AISceneTest.unity
+    guid: cbb6e457ea4ed4154836260592f19381
+  - enabled: 1
+    path: Assets/Louis/xScene/Demo.unity
+    guid: b87d6bd6fb69649ae8ba8542ffafc2b4
   m_configObjects: {}

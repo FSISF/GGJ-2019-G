@@ -30,6 +30,7 @@ public class CharacterState : MonoBehaviour
     }
     public void Hit()
     {
+        BloodEffectPool.Instance.CallBloodEffect(transform.position);
         OnHurt.Invoke();
     }
 }

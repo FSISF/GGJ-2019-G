@@ -89,7 +89,7 @@ public class PlayerController : SingletonMono<PlayerController>
         collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         collision.gameObject.GetComponent<CharacterState>().Hit();
         AttackedEnemy.Add(collision.gameObject);
-        Debug.Log(collision.gameObject.name + "Hit");
+        //Debug.Log(collision.gameObject.name + "Hit");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -106,7 +106,7 @@ public class PlayerController : SingletonMono<PlayerController>
         collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         collision.gameObject.GetComponent<CharacterState>().Hit();
         AttackedEnemy.Add(collision.gameObject);
-        Debug.Log(collision.gameObject.name + "Hit");
+        //Debug.Log(collision.gameObject.name + "Hit");
     }
     void BiteStart()
     {

@@ -32,6 +32,7 @@ public class MonsterNav : MonoBehaviour
 		{
 			Vector2 farNoraml = transform.position - CharManager.Instance.MainChar.transform.position;
 			Vector2 mDelta = Speed * farNoraml.normalized * Time.deltaTime;
+
 			transform.position += new Vector3(mDelta.x, mDelta.y, 0f);
 
 			//TODO Use Nav

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class MouseFollower : MonoBehaviour
 {
+    public Camera TargetCam;
     public LookDire lookDire;
     public bool Play = true;
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class MouseFollower : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = TargetCam.ScreenToWorldPoint(Input.mousePosition);
         if (Play)
             transform.rotation = Lookat2D(transform.position, mousePos, lookDire);
     }

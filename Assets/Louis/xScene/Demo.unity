@@ -13553,6 +13553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7384bf1392611445accdf331ada9b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetCam: {fileID: 1443362312}
   lookDire: 0
   Play: 1
 --- !u!114 &410984240

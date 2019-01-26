@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterNav: {fileID: 0}
   Team: 1
 --- !u!65 &1268378899
 BoxCollider:
@@ -673,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterNav: {fileID: 0}
   Team: 0
 --- !u!65 &1300598448
 BoxCollider:
@@ -861,7 +863,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _aiMember.Self
       value: 
-      objectReference: {fileID: 1268378898}
+      objectReference: {fileID: 1180136185876452140}
     - target: {fileID: 7662352684241633095, guid: df9a95a5666630f4ead82c036ab1a3fb,
         type: 3}
       propertyPath: m_RootOrder
@@ -874,6 +876,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df9a95a5666630f4ead82c036ab1a3fb, type: 3}
+--- !u!114 &1180136185876452140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3912551310924233268, guid: df9a95a5666630f4ead82c036ab1a3fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1180136185876452139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4902043806989188464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4902043806989188464, guid: df9a95a5666630f4ead82c036ab1a3fb,

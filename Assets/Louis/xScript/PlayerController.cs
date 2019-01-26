@@ -31,13 +31,14 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     private void Awake()
     {
-        //CharManager.Instance.MainChar = GetComponent<CharInterface>();
+        if (CharManager.Instance != null)
+            CharManager.Instance.MainChar = GetComponent<CharInterface>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         Speed = state.WalkSpeed;
         Vector2 moveInput = new Vector2(MoveCurve.Evaluate(Input.GetAxisRaw("Horizontal")), MoveCurve.Evaluate(Input.GetAxisRaw("Vertical")));
         MoveVelocity = moveInput.normalized * Speed;
@@ -45,12 +46,12 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     void FixedUpdate()
     {
-        
+
         if (Input.GetMouseButtonDown(0) && CanBite)
         {
             AttackFSM.SendEvent("Bite");
             BiteTween = rb.DOMove(FollowPoint.position, 0.5f).OnPlay(BiteStart).OnComplete(BiteEnd).SetEase(Ease.OutCubic);
-            
+
         }
         if (!biting)
         {
@@ -71,11 +72,11 @@ public class PlayerController : SingletonMono<PlayerController>
             PlayerFacing(FollowPoint);
         }
 
-        
+
     }
     private void LateUpdate()
     {
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

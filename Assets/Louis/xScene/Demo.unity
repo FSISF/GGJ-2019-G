@@ -2414,11 +2414,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38100827}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterNav: {fileID: 0}
   Team: 1
 --- !u!1 &42469124
 GameObject:
@@ -34704,6 +34705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterNav: {fileID: 0}
   Team: 0
 --- !u!61 &1217860304
 BoxCollider2D:
@@ -52760,6 +52762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterNav: {fileID: 0}
   Team: 0
 --- !u!61 &1697539476
 BoxCollider2D:

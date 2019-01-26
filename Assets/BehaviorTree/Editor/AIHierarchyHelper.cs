@@ -26,7 +26,7 @@ namespace JFun.Gameplay.AG.Battle.CharAISystem
 			{
 				padding =
 				{
-					left = EditorStyles.label.padding.left-2,
+					left = EditorStyles.label.padding.left+16,
 					top = EditorStyles.label.padding.top+1
 				},
 				normal =

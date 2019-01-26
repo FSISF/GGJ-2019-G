@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using PlayMaker;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SingletonMono<PlayerController>
 {
     public float Speed = 2;
     public Rigidbody2D rb;
@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public bool CanBite;
     bool biting;
     public PlayMakerFSM AttackFSM;
+    public Animator animator;
+    public enum Facing { Up, Down, Left, Right }
+    public Facing LastFacing = Facing.Down;
     Tweener BiteTween;
     Collision2D lastCollision;
 
@@ -37,19 +40,31 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CanBite)
         {
             AttackFSM.SendEvent("Bite");
-            BiteTween = rb.DOMove(FollowPoint.position, 0.2f).OnPlay(BiteStart).OnComplete(BiteEnd);
-        }
-        else
-        {
-
+            BiteTween = rb.DOMove(FollowPoint.position, 0.5f).OnPlay(BiteStart).OnComplete(BiteEnd).SetEase(Ease.OutCubic);
         }
         if (!biting)
             rb.MovePosition(rb.position + MoveVelocity * Time.fixedDeltaTime);
+
+        if (Mathf.Abs(MoveVelocity.x) > Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.x > 0) ? Facing.Right : Facing.Left;
+        }
+        else if (Mathf.Abs(MoveVelocity.x) < Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.x > 0) ? Facing.Up : Facing.Down;
+        }
+        //if (Input.GetButtonDown("Left")) LastFacing = Facing.Left;
+        //if (Input.GetButtonDown("Right")) LastFacing = Facing.Right;
+        //if (Input.GetButtonDown("Up")) LastFacing = Facing.Up;
+        //if (Input.GetButtonDown("Down")) LastFacing = Facing.Down;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //BiteTween.Kill();
-        //lastCollision = collision;
+        if (!biting)
+            return;
+        if (collision.gameObject.name != "Enemy")
+            return;
+        collision.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

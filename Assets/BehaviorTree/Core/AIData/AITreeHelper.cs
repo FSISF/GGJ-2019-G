@@ -71,6 +71,11 @@ namespace JFun.Gameplay.BehaviourTree
 				{
 					node = customMono.Create();
 				}
+				MonsterSwitchNavNodeMono monsterNavMono = child.GetComponent<MonsterSwitchNavNodeMono>();
+				if (monsterNavMono != null)
+				{
+					node = monsterNavMono.Create();
+				}
 		#endregion
 				composite.AddChild(node);
 				if (node is AINodeContainer)

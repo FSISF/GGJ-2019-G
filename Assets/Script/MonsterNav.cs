@@ -17,6 +17,8 @@ public class MonsterNav : MonoBehaviour
 
 	public void SwitchNav(NavType nav)
 	{
+		if (_nav == nav)
+			return;
 		_nav = nav;
 	}
 

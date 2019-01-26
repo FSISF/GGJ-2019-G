@@ -23,6 +23,7 @@ public class PlayerController : SingletonMono<PlayerController>
     Tweener BiteTween;
     Collision2D lastCollision;
 
+    List<GameObject> AttackedEnemy = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -82,10 +83,12 @@ public class PlayerController : SingletonMono<PlayerController>
             return;
         if (!collision.gameObject.name.Contains("Enemy"))
             return;
+        if (AttackedEnemy.Find(x => x.gameObject == collision.gameObject))
+            return;
         collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         collision.gameObject.GetComponent<CharacterState>().Hit();
-
-
+        AttackedEnemy.Add(collision.gameObject);
+        Debug.Log(collision.gameObject.name + "Hit");
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -93,7 +96,16 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-
+        if (!biting)
+            return;
+        if (!collision.gameObject.name.Contains("Enemy"))
+            return;
+        if (AttackedEnemy.Find(x => x.gameObject == collision.gameObject))
+            return;
+        collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        collision.gameObject.GetComponent<CharacterState>().Hit();
+        AttackedEnemy.Add(collision.gameObject);
+        Debug.Log(collision.gameObject.name + "Hit");
     }
     void BiteStart()
     {
@@ -125,5 +137,9 @@ public class PlayerController : SingletonMono<PlayerController>
         {
             LastFacing = (followOffset.y > 0) ? Facing.Up : Facing.Down;
         }
+    }
+    public void CleanAttackedEnemy()
+    {
+        AttackedEnemy.Clear();
     }
 }

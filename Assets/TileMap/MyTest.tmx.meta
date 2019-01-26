@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 8843fed03164ef9449723c5757e1721b
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _MapPrfab/MyTest
+    100002: _MapPrfab/MyTest/Background
+    100004: _MapPrfab/MyTest/Obstacle
+    400000: _MapPrfab/MyTest/Transform
+    400002: _MapPrfab/MyTest/Background/Transform
+    400004: _MapPrfab/MyTest/Obstacle/Transform
+    11400000: _MapPrfab/MyTest/MonoBehaviour-SuperTiled2Unity.SuperMap
+    11400002: _MapPrfab/MyTest/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400004: _MapPrfab/MyTest/Background/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400006: _MapPrfab/MyTest/Background/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400008: _MapPrfab/MyTest/Obstacle/MonoBehaviour-SuperTiled2Unity.SuperTileLayer
+    11400010: _MapPrfab/MyTest/Obstacle/MonoBehaviour-SuperTiled2Unity.SuperCustomProperties
+    11400012: _superAsset
+    100100000: _MapPrfab
+    2569400265252428796: _MapPrfab/MyTest/Grid
+    3664157343022684176: _MapPrfab/MyTest/Background/TilemapRenderer
+    3664157343022684178: _MapPrfab/MyTest/Obstacle/TilemapRenderer
+    8195094279510102542: _MapPrfab/MyTest/Background/Tilemap
+    8195094279510102544: _MapPrfab/MyTest/Obstacle/Tilemap
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  tilesAsObjects: 0
+  importSorting: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []

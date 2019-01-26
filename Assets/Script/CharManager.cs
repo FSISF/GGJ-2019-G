@@ -8,8 +8,6 @@ public class CharManager : MonoBehaviour
 
 	public static CharManager Instance;
 
-	public CharInterface MainChar;
-
 	public void Register(CharInterface charInterface)
 	{
 		_charList.Add(charInterface);

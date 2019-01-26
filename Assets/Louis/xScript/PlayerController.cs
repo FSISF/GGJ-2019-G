@@ -18,6 +18,8 @@ public class PlayerController : SingletonMono<PlayerController>
     public Animator animator;
     public enum Facing { Up, Down, Left, Right }
     public Facing LastFacing = Facing.Down;
+    public SpriteRenderer PlayerSprite;
+    public AnimationCurve MoveCurve;
     Tweener BiteTween;
     Collision2D lastCollision;
 
@@ -31,17 +33,23 @@ public class PlayerController : SingletonMono<PlayerController>
     {
 
     }
+    private void Awake()
+    {
+        CharManager.Instance.MainChar = GetComponent<CharInterface>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        
         Speed = state.WalkSpeed;
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveInput = new Vector2(MoveCurve.Evaluate(Input.GetAxisRaw("Horizontal")), MoveCurve.Evaluate(Input.GetAxisRaw("Vertical")));
         MoveVelocity = moveInput.normalized * Speed;
+
     }
     void FixedUpdate()
     {
-        //
+        
         if (Input.GetMouseButtonDown(0) && CanBite)
         {
             AttackFSM.SendEvent("Bite");
@@ -59,23 +67,30 @@ public class PlayerController : SingletonMono<PlayerController>
             {
                 animator.Play("Walk" + LastFacing.ToString());
             }
+            PlayerFacing();
         }
         else
         {
             animator.Play("Attack" + LastFacing.ToString());
+            PlayerFacing(FollowPoint);
         }
 
-        PlayerFacing();
+        
+    }
+    private void LateUpdate()
+    {
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!biting)
             return;
-        if (collision.gameObject.name != "Enemy")
+        if (!collision.gameObject.name.Contains("Enemy"))
             return;
-        collision.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+        collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        collision.gameObject.GetComponent<CharacterState>().Hit();
 
-        
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -106,13 +121,14 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     void PlayerFacing(Transform Follow)
     {
-        if (Mathf.Abs(MoveVelocity.x) > Mathf.Abs(MoveVelocity.y))
+        Vector2 followOffset = Follow.position - transform.position;
+        if (Mathf.Abs(followOffset.x) > Mathf.Abs(followOffset.y))
         {
-            LastFacing = (MoveVelocity.x > 0) ? Facing.Right : Facing.Left;
+            LastFacing = (followOffset.x > 0) ? Facing.Right : Facing.Left;
         }
-        else if (Mathf.Abs(MoveVelocity.x) < Mathf.Abs(MoveVelocity.y))
+        else if (Mathf.Abs(followOffset.x) < Mathf.Abs(followOffset.y))
         {
-            LastFacing = (MoveVelocity.y > 0) ? Facing.Up : Facing.Down;
+            LastFacing = (followOffset.y > 0) ? Facing.Up : Facing.Down;
         }
     }
 }

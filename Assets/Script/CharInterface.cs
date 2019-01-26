@@ -29,7 +29,7 @@ public class CharInterface : MonoBehaviour
 		//TODO
 	}
 
-	public void Shoot(Bullet b , CharInterface target)
+	public void Shoot(Bullet b, CharInterface target)
 	{
 		if (target == null)
 		{
@@ -41,11 +41,13 @@ public class CharInterface : MonoBehaviour
 
 	private void Start()
 	{
-		CharManager.Instance.Register(this);
+		if (CharManager.Instance != null)
+			CharManager.Instance.Register(this);
 	}
 
 	private void OnDestroy()
 	{
-		CharManager.Instance.UnRegister(this);
+		if (CharManager.Instance != null)
+			CharManager.Instance.UnRegister(this);
 	}
 }

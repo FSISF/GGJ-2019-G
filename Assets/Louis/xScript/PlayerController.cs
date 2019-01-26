@@ -41,22 +41,26 @@ public class PlayerController : SingletonMono<PlayerController>
         {
             AttackFSM.SendEvent("Bite");
             BiteTween = rb.DOMove(FollowPoint.position, 0.5f).OnPlay(BiteStart).OnComplete(BiteEnd).SetEase(Ease.OutCubic);
+            
         }
         if (!biting)
+        {
             rb.MovePosition(rb.position + MoveVelocity * Time.fixedDeltaTime);
+            if (MoveVelocity == Vector2.zero)
+            {
+                animator.Play("Idle" + LastFacing.ToString());
+            }
+            else
+            {
+                animator.Play("Walk" + LastFacing.ToString());
+            }
+        }
+        else
+        {
+            animator.Play("Attack" + LastFacing.ToString());
+        }
 
-        if (Mathf.Abs(MoveVelocity.x) > Mathf.Abs(MoveVelocity.y))
-        {
-            LastFacing = (MoveVelocity.x > 0) ? Facing.Right : Facing.Left;
-        }
-        else if (Mathf.Abs(MoveVelocity.x) < Mathf.Abs(MoveVelocity.y))
-        {
-            LastFacing = (MoveVelocity.x > 0) ? Facing.Up : Facing.Down;
-        }
-        //if (Input.GetButtonDown("Left")) LastFacing = Facing.Left;
-        //if (Input.GetButtonDown("Right")) LastFacing = Facing.Right;
-        //if (Input.GetButtonDown("Up")) LastFacing = Facing.Up;
-        //if (Input.GetButtonDown("Down")) LastFacing = Facing.Down;
+        PlayerFacing();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -65,6 +69,8 @@ public class PlayerController : SingletonMono<PlayerController>
         if (collision.gameObject.name != "Enemy")
             return;
         collision.gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -81,5 +87,27 @@ public class PlayerController : SingletonMono<PlayerController>
     void BiteEnd()
     {
         biting = false;
+    }
+    void PlayerFacing()
+    {
+        if (Mathf.Abs(MoveVelocity.x) > Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.x > 0) ? Facing.Right : Facing.Left;
+        }
+        else if (Mathf.Abs(MoveVelocity.x) < Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.y > 0) ? Facing.Up : Facing.Down;
+        }
+    }
+    void PlayerFacing(Transform Follow)
+    {
+        if (Mathf.Abs(MoveVelocity.x) > Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.x > 0) ? Facing.Right : Facing.Left;
+        }
+        else if (Mathf.Abs(MoveVelocity.x) < Mathf.Abs(MoveVelocity.y))
+        {
+            LastFacing = (MoveVelocity.y > 0) ? Facing.Up : Facing.Down;
+        }
     }
 }

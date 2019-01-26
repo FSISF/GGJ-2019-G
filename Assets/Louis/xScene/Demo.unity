@@ -1325,7 +1325,7 @@ MonoBehaviour:
   AttackCD: 0.2
   CanBite: 0
   AttackFSM: {fileID: 38100834}
-  animator: {fileID: 1947265677}
+  animator: {fileID: 0}
   LastFacing: 1
   PlayerSprite: {fileID: 1276947674}
   MoveCurve:
@@ -37334,7 +37334,7 @@ PrefabInstance:
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
@@ -37344,7 +37344,7 @@ PrefabInstance:
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
@@ -37359,7 +37359,7 @@ PrefabInstance:
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
         type: 3}
@@ -57226,12 +57226,6 @@ SpriteRenderer:
 --- !u!4 &1947265676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1585838560007446514, guid: 6f560bdc3d3ce184294686aec763a053,
-    type: 3}
-  m_PrefabInstance: {fileID: 1310427451}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1947265677 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1585838560007446516, guid: 6f560bdc3d3ce184294686aec763a053,
     type: 3}
   m_PrefabInstance: {fileID: 1310427451}
   m_PrefabAsset: {fileID: 0}

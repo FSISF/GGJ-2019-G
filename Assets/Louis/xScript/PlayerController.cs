@@ -21,8 +21,13 @@ public class PlayerController : SingletonMono<PlayerController>
     Tweener BiteTween;
     Collision2D lastCollision;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		CharManager.Instance.MainChar = GetComponent<CharInterface>();
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
 
     }

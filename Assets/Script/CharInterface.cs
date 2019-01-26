@@ -10,12 +10,6 @@ public enum Team
 
 public class CharInterface : MonoBehaviour
 {
-	public enum NavType
-	{
-		FollowEnemy,
-		FarwayEnemy,
-		Stop,
-	}
 
 	public Team Team;
 

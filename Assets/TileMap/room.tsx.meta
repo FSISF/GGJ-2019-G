@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 21f0d6c01f9e6bc45b1600e80ba1515f
+ScriptedImporter:
+  fileIDToRecycleName:
+    2800000: Atlas_room_1
+    11400000: _TilesetScriptObject
+    11400002: _superAsset
+    11400004: Tile_room_1
+    11400006: Tile_room_2
+    11400008: Tile_room_3
+    11400010: Tile_room_4
+    11400012: Tile_room_5
+    11400014: Tile_room_6
+    11400016: Tile_room_7
+    11400018: Tile_room_8
+    11400020: Tile_room_9
+    21300000: Sprite_room_1
+    21300002: Sprite_room_2
+    21300004: Sprite_room_3
+    21300006: Sprite_room_4
+    21300008: Sprite_room_5
+    21300010: Sprite_room_6
+    21300012: Sprite_room_7
+    21300014: Sprite_room_8
+    21300016: Sprite_room_9
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: cc34d0f3dc257a442819830b408c5322, type: 3}
+  errors: []
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 21
+  useSpriteAtlas: 1
+  atlasWidth: 2048
+  atlasHeight: 2048

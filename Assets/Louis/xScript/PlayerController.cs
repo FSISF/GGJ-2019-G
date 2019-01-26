@@ -33,10 +33,6 @@ public class PlayerController : SingletonMono<PlayerController>
     {
 
     }
-    private void Awake()
-    {
-        CharManager.Instance.MainChar = GetComponent<CharInterface>();
-    }
 
     // Update is called once per frame
     void Update()

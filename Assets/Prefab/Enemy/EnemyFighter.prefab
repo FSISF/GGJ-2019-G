@@ -496,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4440a8a4456cf47b783bcda2b812ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HpMax: 10
-  Hp: 10
+  HpMax: 2
+  Hp: 2
   IsDead: 0
   _monsterNav: {fileID: 2453436111938391802}
   Team: 0

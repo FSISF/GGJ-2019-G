@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneNames:
   - Stage1
+  - Game_UI
 --- !u!4 &1302974503
 Transform:
   m_ObjectHideFlags: 0
@@ -170,5 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4e77169a8596b49af65a97b7521e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LiveMonsterCount: 0
+  TotalMosterCount: 0
   _charList: []
   MainChar: {fileID: 0}

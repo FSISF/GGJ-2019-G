@@ -12810,6 +12810,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1585838560007446517, guid: 6f560bdc3d3ce184294686aec763a053,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585838560007446517, guid: 6f560bdc3d3ce184294686aec763a053,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585838560007446517, guid: 6f560bdc3d3ce184294686aec763a053,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585838560007446517, guid: 6f560bdc3d3ce184294686aec763a053,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f560bdc3d3ce184294686aec763a053, type: 3}
 --- !u!1001 &4703657163172201803
@@ -12892,6 +12912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226113916519558543, guid: 7b4f88808201a1a4796448919683da16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5226113916519558541, guid: 7b4f88808201a1a4796448919683da16,
         type: 3}

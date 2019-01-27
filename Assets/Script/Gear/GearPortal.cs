@@ -22,4 +22,9 @@ public class GearPortal : Gear
             Debug.Log("Portal");
         }
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(portalPos, 0.2f);
+    }
 }

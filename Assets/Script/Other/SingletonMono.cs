@@ -13,6 +13,13 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
 
     private static object _lock = new object();
 
+    public void Release()
+    {
+        _instance = null;
+    }
+
+
+
     public static T Instance
     {
         get

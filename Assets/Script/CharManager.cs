@@ -40,4 +40,9 @@ public class CharManager : MonoBehaviour
 	{
 		Instance = this;
 	}
+
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 }

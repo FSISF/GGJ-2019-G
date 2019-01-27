@@ -19,5 +19,7 @@ public class FastLoadScene : MonoBehaviour
     public void LoadScene(string SceneName)
     {
         SceneManager.LoadSceneAsync(SceneName);
+        PlayerController.Instance.Release();
+        LoadSceneHelperr.IsLoadDone = false;
     }
 }

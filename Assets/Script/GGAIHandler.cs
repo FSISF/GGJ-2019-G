@@ -37,6 +37,11 @@ namespace JFun.Gameplay.BehaviourTree
 
 			_aiMember.Self.OnHpZero += _aiController.StopAI;
 		}
-	}
+
+        private void OnDestroy()
+        {
+            _aiController.StopAI();
+        }
+    }
 }
 

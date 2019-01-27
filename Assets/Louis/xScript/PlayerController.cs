@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using PlayMaker;
 
-public class PlayerController : SingletonMono<PlayerController>
+public class PlayerController : MonoBehaviour
 {
     public float Speed = 2;
     public Rigidbody2D rb;
@@ -24,14 +24,22 @@ public class PlayerController : SingletonMono<PlayerController>
     Tweener BiteTween;
     Collision2D lastCollision;
 
+    public static PlayerController Instance;
+
+    public void Release()
+    {
+        Instance = null;
+    }
+
     List<GameObject> AttackedEnemy = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-       
     }
     private void Awake()
     {
+        Instance = this;
+
         if (CharManager.Instance != null)
             CharManager.Instance.MainChar = GetComponent<CharInterface>();
     }

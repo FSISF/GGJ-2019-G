@@ -28,7 +28,7 @@ public class PlayerController : SingletonMono<PlayerController>
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
     private void Awake()
     {
@@ -47,11 +47,16 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     void FixedUpdate()
     {
-
+        if (CharManager.Instance.MainChar.Hp <= 0)
+        {
+            animator.Play("Dead");
+            return;
+        }
         if (Input.GetMouseButtonDown(0) && CanBite)
         {
             AttackFSM.SendEvent("Bite");
             BiteTween = rb.DOMove(FollowPoint.position, 0.5f).OnPlay(BiteStart).OnComplete(BiteEnd).SetEase(Ease.OutCubic);
+            MusicSystem.Instance.PlaySound(eSound.ZonbieHit);
 
         }
         if (!biting)
@@ -110,6 +115,7 @@ public class PlayerController : SingletonMono<PlayerController>
         collision.gameObject.GetComponent<CharInterface>().TakeDamage(1);
         AttackedEnemy.Add(collision.gameObject);
         Instantiate(BiteEffectPF, collision.transform.position, Quaternion.identity);
+       
     }
     void BiteStart()
     {

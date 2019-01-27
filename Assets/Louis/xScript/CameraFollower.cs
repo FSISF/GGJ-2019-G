@@ -21,9 +21,12 @@ public class CameraFollower : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (CharManager.Instance.MainChar.Hp <= 0)
+            return;
+
         Vector3 targetPosition = new Vector3(Target.transform.position.x, Target.transform.position.y, transform.position.z);
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        transform.position = Vector3.Lerp(transform.position, targetPosition - (Vector3)moveInput* offset, smoothLerp);
+        transform.position = Vector3.Lerp(transform.position, targetPosition - (Vector3)moveInput * offset, smoothLerp);
 
     }
 }

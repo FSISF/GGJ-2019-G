@@ -17,16 +17,19 @@ public class GearController : MonoBehaviour
     {
         if(gears == null)
         {
-            for(int i = 0; i < transform.childCount; i++)
+            gears = new List<Gear>();
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Gear gear = transform.GetChild(i).GetComponent<Gear>();
+            if (gear != null && !gears.Contains(gear))
             {
-                Gear gear = transform.GetChild(i).GetComponent<Gear>();
-                if(gear != null)
-                {
-                    gears.Add(gear);
-                }
+                gears.Add(gear);
             }
         }
-        if(gearTrigger == null)
+
+        if (gearTrigger == null)
         { 
             gearTrigger = GetComponentInChildren<GearTrigger>();
         }

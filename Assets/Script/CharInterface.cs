@@ -26,8 +26,13 @@ public class CharInterface : MonoBehaviour
 		if (IsDead)
 			return;
 
-		GetComponent<Animator>().SetTrigger("Hit");
-		GetComponent<CharacterState>().Hit();
+
+		if (Team == Team.Monster)
+		{
+
+			GetComponent<Animator>()?.SetTrigger("Hit");
+			GetComponent<CharacterState>()?.Hit();
+		}
 
 		Hp -= damage;
 		if (Hp <= 0)

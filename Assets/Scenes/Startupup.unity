@@ -143,8 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNames:
-  - AISceneTest
-  - demo
+  - Stage1
 --- !u!4 &1302974503
 Transform:
   m_ObjectHideFlags: 0

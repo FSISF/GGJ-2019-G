@@ -23,7 +23,7 @@ public class GearTrigger : MonoBehaviour
         IsActive = turnOn;
     }
 
-    void OnTriggerEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject == PlayerController.Instance.gameObject)
         {
@@ -31,7 +31,7 @@ public class GearTrigger : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject == PlayerController.Instance.gameObject)
         {

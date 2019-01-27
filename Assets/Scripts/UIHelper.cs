@@ -10,6 +10,9 @@ public class UIHelper : MonoBehaviour
 	[SerializeField]
 	private Text MonsterCount;
 
+    [SerializeField]
+    private Image ImageHPBar;
+
 	private void Awake()
 	{
 		CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
@@ -38,4 +41,14 @@ public class UIHelper : MonoBehaviour
 	{
 		MonsterCount.text = CharManager.Instance.LiveMonsterCount + "/" + CharManager.Instance.TotalMosterCount;
 	}
+
+    private void OnPlayerHpChange()
+    {
+        RefreshPlayerHP();
+    }
+
+    private void RefreshPlayerHP()
+    {
+        ImageHPBar.fillAmount = (float)CharManager.Instance.MainChar.Hp / (float)CharManager.Instance.MainChar.HpMax;
+    }
 }

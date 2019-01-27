@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370531382469533270}
   - component: {fileID: 370531382469533269}
+  - component: {fileID: 2105760729}
   m_Layer: 0
   m_Name: Obstacle Item14
   m_TagString: Untagged
@@ -79,3 +80,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2105760729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370531382469533267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf1d944544929b468a949ae1575e10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0

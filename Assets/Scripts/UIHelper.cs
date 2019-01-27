@@ -13,9 +13,16 @@ public class UIHelper : MonoBehaviour
     [SerializeField]
     private Image ImageHPBar;
 
+    [SerializeField]
+    private Image ImageGameOver;
+
 	private void Awake()
 	{
-		CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
+        ImageGameOver.color = Color.clear;
+
+        CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
+        CharManager.Instance.MainChar.OnHPChange += OnPlayerHpChange;
+        CharManager.Instance.MainChar.OnHpZero += OnPlayerHpChange;
 		if (LoadSceneHelperr.IsLoadDone)
 		{
 			RefreshMonsterCountTxt();
@@ -50,5 +57,10 @@ public class UIHelper : MonoBehaviour
     private void RefreshPlayerHP()
     {
         ImageHPBar.fillAmount = (float)CharManager.Instance.MainChar.Hp / (float)CharManager.Instance.MainChar.HpMax;
+    }
+
+    private void OnPlayerHpZero()
+    {
+        ImageGameOver.color = Color.white;
     }
 }

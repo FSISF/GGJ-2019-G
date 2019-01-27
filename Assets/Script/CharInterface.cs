@@ -14,6 +14,7 @@ public class CharInterface : MonoBehaviour
 	public int HpMax = 10;
 	public int Hp = 10;
 	public event Action OnHpZero = delegate { };
+    public event Action OnHPChange = delegate { };
 	public bool IsDead = false;
 
 	[SerializeField]
@@ -35,7 +36,9 @@ public class CharInterface : MonoBehaviour
 		}
 
 		Hp -= damage;
-		if (Hp <= 0)
+        OnHPChange.Invoke();
+
+        if (Hp <= 0)
 		{
 			Hp = 0;
 			IsDead = true;

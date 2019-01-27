@@ -28,6 +28,13 @@ public class CharacterState : MonoBehaviour
     {
         
     }
+
+	public void OnDeathTrigger()
+	{
+		//TODO ??
+		OnDeath.Invoke();
+	}
+
     public void Hit()
     {
 		if (BloodEffectPool.Instance != null)

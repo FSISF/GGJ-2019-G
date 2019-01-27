@@ -10,7 +10,8 @@ public class LoadSceneHelperr : MonoBehaviour
 {
 	public List<string> SceneNames = new List<string>();
 
-	public static UnityEvent OnLoadAllDone;
+	public static bool IsLoadDone;
+	public static event Action OnLoadAllDone;
 
 	private List<AsyncOperation> _loadScenes = new List<AsyncOperation>();
 
@@ -18,6 +19,7 @@ public class LoadSceneHelperr : MonoBehaviour
 
 	public void Load()
 	{
+
 		foreach (string sceneName in SceneNames)
 		{
 			AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -50,7 +52,10 @@ public class LoadSceneHelperr : MonoBehaviour
 			_loadSecneTask = null;
 
 			if (OnLoadAllDone != null)
+			{
+				IsLoadDone = true;
 				OnLoadAllDone.Invoke();
+			}
 		}
 	}
 

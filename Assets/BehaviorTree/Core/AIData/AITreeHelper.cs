@@ -81,6 +81,11 @@ namespace JFun.Gameplay.BehaviourTree
 				{
 					node = shootMono.Create();
 				}
+				MonsterAtkNodeMono monsterAtkMono = child.GetComponent<MonsterAtkNodeMono>();
+				if(monsterAtkMono != null)
+				{
+					node = monsterAtkMono.Create();
+				}
 
 		#endregion
 				composite.AddChild(node);

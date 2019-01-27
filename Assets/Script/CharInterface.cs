@@ -34,6 +34,7 @@ public class CharInterface : MonoBehaviour
 		{
 			Hp = 0;
 			IsDead = true;
+			GetComponent<CharacterState>().OnDeathTrigger();
 			OnHpZero.Invoke();
 
 			if (CharManager.Instance == null)

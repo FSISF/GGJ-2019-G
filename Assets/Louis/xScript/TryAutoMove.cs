@@ -24,17 +24,18 @@ public class TryAutoMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector2[] path_v2 =  AINavMeshGenerator.pathfinder.FindPath(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //    List<Vector3> Poss = new List<Vector3>();
-        //    foreach(Vector3 n in path_v2)
-        //    {
-        //        Poss.Add(n);
-        //    }
-        //    GetComponent<LineRenderer>().positionCount = Poss.Count;
-        //    GetComponent<LineRenderer>().SetPositions(Poss.ToArray());
-        //}
+		//if (Input.GetMouseButtonDown(0))
+		//{
+		//    Vector2[] path_v2 =  AINavMeshGenerator.pathfinder.FindPath(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		//    List<Vector3> Poss = new List<Vector3>();
+		//    foreach(Vector3 n in path_v2)
+		//    {
+		//        Poss.Add(n);
+		//    }
+		//    GetComponent<LineRenderer>().positionCount = Poss.Count;
+		//    GetComponent<LineRenderer>().SetPositions(Poss.ToArray());
+		//}
+
         Vector2[] TempPath_v2 = AINavMeshGenerator.pathfinder.FindPath(transform.position, target.transform.position);
         if (TempPath_v2 != null)
         {

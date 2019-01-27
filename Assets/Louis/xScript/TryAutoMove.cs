@@ -48,6 +48,12 @@ public class TryAutoMove : MonoBehaviour
             GetComponent<LineRenderer>().positionCount = Poss.Count;
             GetComponent<LineRenderer>().SetPositions(Poss.ToArray());
             //rb.MovePosition(TempPath_v2[1]);
+            move = true;
+        }
+        else
+        {
+            move = false;
+            rb.velocity = Vector2.zero;
         }
         if (move)
         {

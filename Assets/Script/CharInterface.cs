@@ -21,7 +21,14 @@ public class CharInterface : MonoBehaviour
     private MonsterNav _monsterNav;
     public Team Team;
     CharacterState charState;
-
+    public void TakeHealth(int addHP)
+    {
+        if (IsDead)
+            return;
+        Hp += addHP;
+        Hp = Mathf.Clamp(Hp, 0, HpMax);
+        OnHPChange.Invoke();
+    }
     public void TakeDamage(int damage)
     {
         if (IsDead)
@@ -49,7 +56,7 @@ public class CharInterface : MonoBehaviour
             {
                 _monsterNav.SwitchNav(NavType.Stop);
                 GetComponent<Animator>()?.Play("Dead");
-         
+                CharManager.Instance.MainChar.TakeHealth(1);
             }
 
             if (CharManager.Instance == null)

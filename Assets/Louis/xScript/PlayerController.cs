@@ -78,7 +78,22 @@ public class PlayerController : SingletonMono<PlayerController>
             PlayerFacing(FollowPoint);
         }
 
-
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            transform.position += new Vector3(1, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            transform.position += new Vector3(-1, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            transform.position += new Vector3(0, 1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            transform.position += new Vector3(0, -1, 0);
+        }
     }
     private void LateUpdate()
     {

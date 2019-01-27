@@ -16,6 +16,7 @@ public class UIHelper : MonoBehaviour
 	private void Awake()
 	{
 		CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
+        CharManager.Instance.MainChar.OnHPChange += OnPlayerHpChange;
 		if (LoadSceneHelperr.IsLoadDone)
 		{
 			RefreshMonsterCountTxt();

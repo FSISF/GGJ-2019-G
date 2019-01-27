@@ -86,8 +86,9 @@ public class PlayerController : SingletonMono<PlayerController>
             return;
         if (AttackedEnemy.Find(x => x.gameObject == collision.gameObject))
             return;
-        collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
-        collision.gameObject.GetComponent<CharacterState>().Hit();
+
+		collision.gameObject.GetComponent<CharInterface>().TakeDamage(1);
+        
         AttackedEnemy.Add(collision.gameObject);
         //Debug.Log(collision.gameObject.name + "Hit");
     }

@@ -18,6 +18,9 @@ public class NearAttackTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (CharManager.Instance.MainChar.Hp <= 0)
+            return;
+
         if (!other.name.Contains("Enemy"))
             return;
         if (CurrentEnemys.Find(x => x.gameObject == other.gameObject))

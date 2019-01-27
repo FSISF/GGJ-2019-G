@@ -16,6 +16,7 @@ public enum eSound
     GunShoot,
     Hit,
     PlayerSound,
+    ZonbieHit
 }
 
 public class MusicSystem : SingletonMono<MusicSystem>
@@ -30,6 +31,7 @@ public class MusicSystem : SingletonMono<MusicSystem>
         if (AudioSourceBGM == null)
         {
             AudioSourceBGM = this.gameObject.AddComponent<AudioSource>();
+            AudioSourceBGM.volume = 0.5f;
         }
         if (AudioSourceSound == null)
         {

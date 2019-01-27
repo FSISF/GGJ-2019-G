@@ -16,6 +16,7 @@ public class TitleUI : MonoBehaviour
 
     void Start()
     {
+        MusicSystem.Instance.PlayBGM(eBGM.Stage);
         StartCoroutine(PlayTitle());
     }
 

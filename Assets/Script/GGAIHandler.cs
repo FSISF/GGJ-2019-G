@@ -24,7 +24,7 @@ namespace JFun.Gameplay.BehaviourTree
 				if (NotMyTeam)
 				{
 					
-					_aiMember.MostCloseEmemyDist = Vector3.Distance(c.transform.position, myPos);
+					_aiMember.MostCloseEmemyDist = Vector2.Distance(c.transform.position, myPos);
 				}
 			}
 		}
@@ -34,6 +34,8 @@ namespace JFun.Gameplay.BehaviourTree
 			RootNode root = AITreeHelper.Parser(transform, _aiMember);
 			_aiController.Init(_aiMember, root);
 			_aiController.StartAI();
+
+			_aiMember.Self.OnHpZero += _aiController.StopAI;
 		}
 	}
 }

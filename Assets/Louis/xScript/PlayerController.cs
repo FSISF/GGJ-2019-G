@@ -20,6 +20,7 @@ public class PlayerController : SingletonMono<PlayerController>
     public Facing LastFacing = Facing.Down;
     public SpriteRenderer PlayerSprite;
     public AnimationCurve MoveCurve;
+    public GameObject BiteEffectPF;
     Tweener BiteTween;
     Collision2D lastCollision;
 
@@ -86,10 +87,8 @@ public class PlayerController : SingletonMono<PlayerController>
             return;
         if (AttackedEnemy.Find(x => x.gameObject == collision.gameObject))
             return;
-        collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
-        collision.gameObject.GetComponent<CharacterState>().Hit();
-        AttackedEnemy.Add(collision.gameObject);
-        //Debug.Log(collision.gameObject.name + "Hit");
+        Attack(collision);
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -103,10 +102,15 @@ public class PlayerController : SingletonMono<PlayerController>
             return;
         if (AttackedEnemy.Find(x => x.gameObject == collision.gameObject))
             return;
+        Attack(collision);
+        
+    }
+    void Attack(Collision2D collision)
+    {
         collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         collision.gameObject.GetComponent<CharacterState>().Hit();
         AttackedEnemy.Add(collision.gameObject);
-        //Debug.Log(collision.gameObject.name + "Hit");
+        Instantiate(BiteEffectPF, collision.transform.position, Quaternion.identity);
     }
     void BiteStart()
     {

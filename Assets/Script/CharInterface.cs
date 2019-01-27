@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,14 +11,40 @@ public enum Team
 
 public class CharInterface : MonoBehaviour
 {
+	public int HpMax = 10;
+	public int Hp = 10;
+	public event Action OnHpZero = delegate { };
+	public bool IsDead = false;
 
 	[SerializeField]
 	private MonsterNav _monsterNav;
 	public Team Team;
+	CharacterState charState;
 
 	public void TakeDamage(int damage)
 	{
-		//TODO
+		if (IsDead)
+			return;
+
+		GetComponent<Animator>().SetTrigger("Hit");
+		GetComponent<CharacterState>().Hit();
+
+		Hp -= damage;
+		if (Hp <= 0)
+		{
+			Hp = 0;
+			IsDead = true;
+			OnHpZero.Invoke();
+
+			if (CharManager.Instance == null)
+			{
+				Debug.LogFormat("[CharInterface.Start] Not Found CharManager.Instance");
+				return;
+			}
+
+			CharManager.Instance.UnRegister(this);
+			//TODO Death Show
+		}
 	}
 
 	public void ChangeNav(NavType nav)
@@ -32,23 +59,19 @@ public class CharInterface : MonoBehaviour
 		}
 	}
 
-	public void Shoot(Bullet b , CharInterface target)
-	{
-		if (target == null)
-		{
-			Debug.LogError("[CharInterface][Shoot] target == null");
-		}
-
-		//TODO Clone Bullet & Shoot
-	}
-
 	private void Start()
 	{
+		Hp = HpMax;
+		if (CharManager.Instance == null)
+		{
+			Debug.LogFormat("[CharInterface.Start] Not Found CharManager.Instance");
+			return;
+		}
 		CharManager.Instance.Register(this);
 	}
 
-	private void OnDestroy()
+	private void Awake()
 	{
-		CharManager.Instance.UnRegister(this);
+		charState = GetComponent<CharacterState>();
 	}
 }

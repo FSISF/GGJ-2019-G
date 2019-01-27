@@ -55,6 +55,12 @@ public class MonsterNav : MonoBehaviour
 			//Vector2 mDelta = Speed * farNoraml.normalized * Time.deltaTime;
 			//transform.position -= new Vector3(mDelta.x, mDelta.y, 0f);
 
+			if (AINavMeshGenerator.pathfinder == null)
+			{
+				//Debug.LogError("Not Found AINavMeshGenerator");
+				return;
+			}
+
 			_index++;
 			if (_index % 5 == 0)
 			{

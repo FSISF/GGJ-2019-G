@@ -107,8 +107,7 @@ public class PlayerController : SingletonMono<PlayerController>
     }
     void Attack(Collision2D collision)
     {
-        collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
-        collision.gameObject.GetComponent<CharacterState>().Hit();
+        collision.gameObject.GetComponent<CharInterface>().TakeDamage(1);
         AttackedEnemy.Add(collision.gameObject);
         Instantiate(BiteEffectPF, collision.transform.position, Quaternion.identity);
     }

@@ -22,7 +22,7 @@ public class UIHelper : MonoBehaviour
 
         CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
         CharManager.Instance.MainChar.OnHPChange += OnPlayerHpChange;
-        CharManager.Instance.MainChar.OnHpZero += OnPlayerHpChange;
+        CharManager.Instance.MainChar.OnHpZero += OnPlayerHpZero;
 		if (LoadSceneHelperr.IsLoadDone)
 		{
 			RefreshMonsterCountTxt();

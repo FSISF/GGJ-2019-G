@@ -24,7 +24,7 @@ namespace JFun.Gameplay.BehaviourTree
 				if (NotMyTeam)
 				{
 					
-					_aiMember.MostCloseEmemyDist = Vector3.Distance(c.transform.position, myPos);
+					_aiMember.MostCloseEmemyDist = Vector2.Distance(c.transform.position, myPos);
 				}
 			}
 		}

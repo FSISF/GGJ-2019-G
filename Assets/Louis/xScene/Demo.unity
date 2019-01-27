@@ -15019,33 +15019,6 @@ PolygonCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 494363102}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1097139761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5915674024564168734, guid: 2cd0f45fdc270fc4e818f7b8039efab5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1362562474}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1097139762
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097139761}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 20
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!60 &1108592029 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 6000540, guid: 07f4fa974117cb949a785b711d6da93e,
@@ -15401,11 +15374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5830915753334475671, guid: 2cd0f45fdc270fc4e818f7b8039efab5,
-        type: 3}
-      propertyPath: Speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 737742318701248720, guid: 2cd0f45fdc270fc4e818f7b8039efab5,
         type: 3}
       propertyPath: m_LocalPosition.x

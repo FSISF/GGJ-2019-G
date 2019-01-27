@@ -34,6 +34,8 @@ namespace JFun.Gameplay.BehaviourTree
 			RootNode root = AITreeHelper.Parser(transform, _aiMember);
 			_aiController.Init(_aiMember, root);
 			_aiController.StartAI();
+
+			_aiMember.Self.OnHpZero += _aiController.StopAI;
 		}
 	}
 }

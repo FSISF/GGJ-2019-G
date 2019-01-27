@@ -16,9 +16,14 @@ public class UIHelper : MonoBehaviour
     [SerializeField]
     private Image ImageGameOver;
 
+    [SerializeField]
+    private Button ResetButton;
+
 	private void Awake()
 	{
         ImageGameOver.color = Color.clear;
+        ResetButton.interactable = false;
+        ResetButton.GetComponent<CanvasGroup>().alpha = 0;
 
         CharManager.Instance.OnMonsterCountChange += OnMonsterCountChange;
         CharManager.Instance.MainChar.OnHPChange += OnPlayerHpChange;
@@ -62,5 +67,7 @@ public class UIHelper : MonoBehaviour
     private void OnPlayerHpZero()
     {
         ImageGameOver.color = Color.white;
+        ResetButton.interactable = true;
+        ResetButton.GetComponent<CanvasGroup>().alpha = 1;
     }
 }
